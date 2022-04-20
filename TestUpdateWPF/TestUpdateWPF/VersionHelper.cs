@@ -14,7 +14,7 @@ namespace TestUpdateWPF
 {
     public class VersionHelper
     {
-        private string MSIFilePath = Path.Combine(Environment.CurrentDirectory, "HoustersCrawler.msi");
+        public string MSIFilePath = Path.Combine(Environment.CurrentDirectory);
         private string CmdFilePath = Path.Combine(Environment.CurrentDirectory, "Install.cmd");
         private string MsiUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/setup.exe";
 
