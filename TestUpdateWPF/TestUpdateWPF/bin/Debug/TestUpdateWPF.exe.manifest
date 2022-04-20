@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TestUpdateWPF.exe" size="15352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TestUpdateWPF.exe" size="14840">
       <assemblyIdentity name="TestUpdateWPF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>V68wDwwTGxUZ1K23zJMgcFgQXG7dFEQ97HDsza0ah1I=</dsig:DigestValue>
+        <dsig:DigestValue>gv3ibfzaKumpqh5zLM8Cy/PIHiNZkBdAkpTkVoJLN6o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -27,7 +27,7 @@ namespace TestUpdateWPF
         VersionHelper vs = new VersionHelper();
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            vs.CheckForNewVersion();
+            vs.DownloadNewVersion();
         }
     }
 }
