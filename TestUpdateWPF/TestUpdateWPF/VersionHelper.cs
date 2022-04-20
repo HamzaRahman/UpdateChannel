@@ -15,6 +15,7 @@ namespace TestUpdateWPF
     public class VersionHelper
     {
         public string MSIFilePath = Path.Combine(Environment.CurrentDirectory);
+        string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
         private string CmdFilePath = Path.Combine(Environment.CurrentDirectory, "Install.cmd");
         private string MsiUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/setup.exe";
 
@@ -70,17 +71,17 @@ namespace TestUpdateWPF
             return String.Empty;
         }
 
-        private void DownloadNewVersion(string url)
+        public void DownloadNewVersion(string url)
         {
-            //delete existing msi.
-            if (File.Exists(MSIFilePath))
+            //delete existing zip.
+            if (File.Exists(DownloadPath))
             {
-                File.Delete(MSIFilePath);
+                File.Delete(DownloadPath);
             }
-            //download new msi.
+            //download new zip.
             using (var client = new WebClient())
             {
-                client.DownloadFile(url, MSIFilePath);
+                client.DownloadFile(url, DownloadPath);
             }
         }
 
