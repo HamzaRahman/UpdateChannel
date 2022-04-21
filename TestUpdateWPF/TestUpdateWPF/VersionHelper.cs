@@ -48,11 +48,11 @@ namespace TestUpdateWPF
             WebClient wc = new WebClient();
             Version newv = new Version(wc.DownloadString(UpdateVersionUrl));
             string appVersion = $"{currentversion.Major}.{currentversion.Minor}.{currentversion.Build}.{currentversion.Revision}";
-            if (currentversion.CompareTo(newv)==0)
+            if (currentversion != newv)
             {
                 return true;
             }
-
+            MessageBox.Show(appVersion + " " + newv.ToString());
             return false;
         }
 
