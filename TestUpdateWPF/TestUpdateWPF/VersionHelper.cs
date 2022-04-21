@@ -7,6 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Xml;
 using System.Xml.Linq;
@@ -82,6 +83,7 @@ namespace TestUpdateWPF
             {
                 File.Delete(DownloadPath);
             }
+            Thread.Sleep(2000);
             //download new zip.
             using (var client = new WebClient())
             {
@@ -94,6 +96,7 @@ namespace TestUpdateWPF
             {
                 Directory.Delete(FolderPath,true);
             }
+            Thread.Sleep(2000);
             ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
             //Process.Start(ExePath);
         }
