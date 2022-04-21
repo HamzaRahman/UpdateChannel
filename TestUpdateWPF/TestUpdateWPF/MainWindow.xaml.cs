@@ -23,11 +23,16 @@ namespace TestUpdateWPF
         public MainWindow()
         {
             InitializeComponent();
+            //vs.CreateVersionFile();
         }
         VersionHelper vs = new VersionHelper();
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            vs.DownloadNewVersion();
+            if (vs.NewVersionAvailable())
+            {
+                MessageBox.Show("up");
+                //vs.DownloadNewVersion();
+            }
         }
     }
 }
