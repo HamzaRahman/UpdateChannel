@@ -17,9 +17,9 @@ namespace TestUpdateWPF
     public class VersionHelper
     {
         public string MSIFilePath = Path.Combine(Environment.CurrentDirectory);
-        string LocalVersionFilePath = Environment.CurrentDirectory + "Version.txt";
+        string LocalVersionFilePath = Environment.CurrentDirectory + @"\Version.txt";
         string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
-        string FolderPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
+        string CurrentPath = Path.Combine(Environment.CurrentDirectory);//Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
         string ExePath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\AutoUpdater\AutoUpdater.exe";
         private string CmdFilePath = Path.Combine(Environment.CurrentDirectory, "Install.cmd");
         private string SetupUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
@@ -74,18 +74,18 @@ namespace TestUpdateWPF
         }
         private void UnpackZip()
         {
-            if (Directory.Exists(FolderPath))
-            {
-                string[] files = Directory.GetFiles(FolderPath);
-                foreach (string file in files)
-                {
-                    File.Delete(file);
-                    Console.WriteLine($"{file} is deleted.");
-                }
-                Directory.Delete(FolderPath, true);
-            }
-            ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
-            Process.Start(ExePath);
+            //if (Directory.Exists(CurrentPath))
+            //{
+            //    string[] files = Directory.GetFiles(CurrentPath);
+            //    foreach (string file in files)
+            //    {
+            //        File.Delete(file);
+            //        Console.WriteLine($"{file} is deleted.");
+            //    }
+            //    Directory.Delete(CurrentPath, true);
+            //}
+            //ZipFile.ExtractToDirectory(DownloadPath, CurrentPath);
+            Process.Start(ExePath,CurrentPath+" "+DownloadPath);
             Application.Current.Shutdown();
         }
         private void CreateCmdFile()

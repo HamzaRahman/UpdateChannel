@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="TestUpdateWPF.exe" version="1.0.0.18" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="TestUpdateWPF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="TestUpdateWPF" version="1.0.0.2" language="neutral" processorArchitecture="msil" />
     <commandLine file="TestUpdateWPF.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TestUpdateWPF.exe" size="12792">
-      <assemblyIdentity name="TestUpdateWPF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TestUpdateWPF.exe" size="11768">
+      <assemblyIdentity name="TestUpdateWPF" version="1.0.0.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LLNPvCOurKg75080w/3uWeTGb+DOqkZgxt70elMdg9g=</dsig:DigestValue>
+        <dsig:DigestValue>yYq/Wj0T6HcwORD6IKMreu/5AAnFvjp3Sl/t9L+cdXY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
