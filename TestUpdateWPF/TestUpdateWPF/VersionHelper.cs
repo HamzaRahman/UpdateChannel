@@ -95,7 +95,7 @@ namespace TestUpdateWPF
                 Directory.Delete(FolderPath,true);
             }
             ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
-            Process.Start(ExePath);
+            //Process.Start(ExePath);
         }
         private void CreateCmdFile()
         {
