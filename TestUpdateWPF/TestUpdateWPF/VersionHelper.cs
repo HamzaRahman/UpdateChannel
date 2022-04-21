@@ -17,21 +17,23 @@ namespace TestUpdateWPF
     public class VersionHelper
     {
         public string MSIFilePath = Path.Combine(Environment.CurrentDirectory);
+        string LocalVersionFilePath = Environment.CurrentDirectory + "Version.txt";
         string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
         string FolderPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
         string ExePath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\AutoUpdater\AutoUpdater.exe";
         private string CmdFilePath = Path.Combine(Environment.CurrentDirectory, "Install.cmd");
-        private string MsiUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
+        private string SetupUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
+        private string UpdateVersionUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Version.txt";
 
         public bool CheckForNewVersion()
         {
-            MsiUrl = GetNewVersionUrl();
-            return MsiUrl.Length > 0;
+            SetupUrl = GetNewVersionUrl();
+            return SetupUrl.Length > 0;
         }
 
         public void DownloadNewVersion()
         {
-            DownloadNewVersion(MsiUrl);
+            DownloadNewVersion(SetupUrl);
             UnpackZip();
             //CreateCmdFile();
             //RunCmdFile();
@@ -40,39 +42,20 @@ namespace TestUpdateWPF
 
         private string GetNewVersionUrl()
         {
-            var versio = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
-            string appVersion = $"{versio.Major}.{versio.Minor}";
-            MessageBox.Show(appVersion);
-            var url = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Version.txt";
-            //var data = "";
-            //var wc = new WebClient();
-            //data = wc.DownloadString(url);
-            var currentVersion = 1;//Convert.ToInt32(ConfigurationManager.AppSettings["Version"]);
-                                   //get xml from url.
-            /*var url = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/";*///ConfigurationManager.AppSettings["VersionUrl"].ToString();
-            var builder = new StringBuilder();
-            using (var stringWriter = new StringWriter(builder))
+            var currentversio = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
+            string appVersion = $"{currentversio.Major}.{currentversio.Minor}";
+            WebClient wc = new WebClient();
+            if (!File.Exists(LocalVersionFilePath))
             {
-                using (var xmlReader = new XmlTextReader(url))
-                {
-                    var doc = XDocument.Load(xmlReader);
-                    //get versions.
-                    var versions = from v in doc.Descendants("version")
-                                   select new
-                                   {
-                                       Name = v.Element("name").Value,
-                                       Number = Convert.ToInt32(v.Element("number").Value),
-                                       URL = v.Element("url").Value,
-                                       Date = Convert.ToDateTime(v.Element("date").Value)
-                                   };
-                    var version = versions.ToList()[0];
-                    //check if latest version newer than current version.
-                    if (version.Number > currentVersion)
-                    {
-                        return version.URL;
-                    }
-                }
+                File.Create(LocalVersionFilePath);
+                MessageBox.Show(LocalVersionFilePath);
+                //File.WriteAllText(LocalVersionFilePath, "0.0.0.0");
             }
+            if (wc.DownloadString(UpdateVersionUrl) != File.ReadAllText(LocalVersionFilePath))
+            {
+                MessageBox.Show("Update Available");
+            }
+
             return String.Empty;
         }
 
