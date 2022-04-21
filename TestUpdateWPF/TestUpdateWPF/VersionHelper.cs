@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -15,9 +16,11 @@ namespace TestUpdateWPF
     public class VersionHelper
     {
         public string MSIFilePath = Path.Combine(Environment.CurrentDirectory);
-        string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.rar";
+        string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
+        string FolderPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
+        string ExePath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\Setup.exe";
         private string CmdFilePath = Path.Combine(Environment.CurrentDirectory, "Install.cmd");
-        private string MsiUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.rar";
+        private string MsiUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
 
         public bool CheckForNewVersion()
         {
@@ -28,9 +31,10 @@ namespace TestUpdateWPF
         public void DownloadNewVersion()
         {
             DownloadNewVersion(MsiUrl);
-            CreateCmdFile();
-            RunCmdFile();
-            ExitApplication();
+            UnpackZip();
+            //CreateCmdFile();
+            //RunCmdFile();
+            //ExitApplication();
         }
 
         private string GetNewVersionUrl()
@@ -84,7 +88,15 @@ namespace TestUpdateWPF
                 client.DownloadFile(url, DownloadPath);
             }
         }
-
+        private void UnpackZip()
+        {
+            if (Directory.Exists(FolderPath))
+            {
+                Directory.Delete(FolderPath,true);
+            }
+            ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
+            Process.Start(ExePath);
+        }
         private void CreateCmdFile()
         {
             //check if file exists.

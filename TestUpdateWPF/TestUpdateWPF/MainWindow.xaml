@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Updated" Content="Updateeed" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Update_Click"/>
+        <Button x:Name="Updated" Content="Updateed" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Update_Click"/>
     </Grid>
 </Window>
