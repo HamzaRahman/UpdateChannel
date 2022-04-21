@@ -83,7 +83,6 @@ namespace TestUpdateWPF
             {
                 File.Delete(DownloadPath);
             }
-            Thread.Sleep(2000);
             //download new zip.
             using (var client = new WebClient())
             {
@@ -102,7 +101,6 @@ namespace TestUpdateWPF
                 }
                 Directory.Delete(FolderPath, true);
             }
-            Thread.Sleep(2000);
             ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
             //Process.Start(ExePath);
         }
