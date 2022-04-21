@@ -19,7 +19,7 @@ namespace TestUpdateWPF
         public string MSIFilePath = Path.Combine(Environment.CurrentDirectory);
         string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
         string FolderPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
-        string ExePath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\Setup.exe";
+        string ExePath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\AutoUpdater\AutoUpdater.exe";
         private string CmdFilePath = Path.Combine(Environment.CurrentDirectory, "Install.cmd");
         private string MsiUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
 
@@ -102,7 +102,8 @@ namespace TestUpdateWPF
                 Directory.Delete(FolderPath, true);
             }
             ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
-            //Process.Start(ExePath);
+            Process.Start(ExePath);
+            Application.Current.Shutdown();
         }
         private void CreateCmdFile()
         {
