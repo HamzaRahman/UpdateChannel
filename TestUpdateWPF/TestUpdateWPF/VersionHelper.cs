@@ -79,7 +79,7 @@ namespace TestUpdateWPF
         private void DownloadNewVersion(string url)
         {
             //delete existing zip.
-            if (File.Exists(DownloadPath))
+            while (File.Exists(DownloadPath))
             {
                 File.Delete(DownloadPath);
             }
@@ -100,6 +100,7 @@ namespace TestUpdateWPF
                     File.Delete(file);
                     Console.WriteLine($"{file} is deleted.");
                 }
+                Directory.Delete(FolderPath, true);
             }
             Thread.Sleep(2000);
             ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
