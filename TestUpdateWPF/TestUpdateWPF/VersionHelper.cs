@@ -94,7 +94,12 @@ namespace TestUpdateWPF
         {
             if (Directory.Exists(FolderPath))
             {
-                Directory.Delete(FolderPath,true);
+                string[] files = Directory.GetFiles(FolderPath);
+                foreach (string file in files)
+                {
+                    File.Delete(file);
+                    Console.WriteLine($"{file} is deleted.");
+                }
             }
             Thread.Sleep(2000);
             ZipFile.ExtractToDirectory(DownloadPath, FolderPath);
