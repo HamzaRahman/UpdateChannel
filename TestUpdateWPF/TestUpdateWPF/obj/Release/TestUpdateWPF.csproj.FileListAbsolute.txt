@@ -16,4 +16,3 @@ F:\Github\UpdateChannel\TestUpdateWPF\TestUpdateWPF\obj\Release\TestUpdateWPF.ex
 F:\Github\UpdateChannel\TestUpdateWPF\TestUpdateWPF\obj\Release\TestUpdateWPF.application
 F:\Github\UpdateChannel\TestUpdateWPF\TestUpdateWPF\obj\Release\TestUpdateWPF.exe
 F:\Github\UpdateChannel\TestUpdateWPF\TestUpdateWPF\obj\Release\TestUpdateWPF.pdb
-F:\Github\UpdateChannel\TestUpdateWPF\TestUpdateWPF\obj\Release\TestUpdateWPF.csproj.AssemblyReference.cache
