@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6622EA4071734D40948321BD08E65896"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_89EB946C65171349581063C9C0D56578"
         "OwnerKey" = "8:_F5E7EF3DD91F4BDA91C146FAEC0B9904"
         "MsmSig" = "8:_UNDEFINED"
@@ -112,6 +118,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_1F0BA966A3F843788A68152449E1E24E"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
                 "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_36A67BEB125B4A2B8C5D2890803BD58B"
                 {
                 "Name" = "8:.NET Framework"
@@ -274,7 +290,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TestIntsaller"
         "ProductCode" = "8:{78795901-FFEF-41CE-8E51-501B19A7E675}"
-        "PackageCode" = "8:{2141E76F-272C-4B35-A378-2C31963BD970}"
+        "PackageCode" = "8:{FD657358-2CA8-48AB-92E8-0572E2D8AF06}"
         "UpgradeCode" = "8:{453EB1B2-8999-487F-A4F9-9565FD2A1645}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -807,6 +823,34 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6622EA4071734D40948321BD08E65896"
+            {
+            "SourcePath" = "8:..\\..\\..\\AutoUpdater\\AutoUpdater\\obj\\Release\\netcoreapp3.1\\apphost.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0CD6AE70A9444BEA933493E26D73AA4F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{9D8FAE67-DF38-4C8E-8DD9-40A66B4AE41F}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F5E7EF3DD91F4BDA91C146FAEC0B9904"
             {
             "SourcePath" = "8:..\\TestUpdateWPF\\obj\\Release\\TestUpdateWPF.exe"

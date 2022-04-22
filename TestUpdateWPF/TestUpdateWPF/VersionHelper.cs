@@ -19,7 +19,7 @@ namespace TestUpdateWPF
         string LocalVersionFilePath = Environment.CurrentDirectory + @"\Version.txt";
         string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
         string CurrentPath = Path.Combine(Environment.CurrentDirectory);//Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
-        string ExePath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\AutoUpdater\AutoUpdater.exe";
+        string EctractorExePath = Environment.CurrentDirectory + @"\AutoUpdater.exe";
         private string SetupUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
         private string UpdateVersionUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Version.txt";
         Version currentversion = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
@@ -34,25 +34,21 @@ namespace TestUpdateWPF
         }
         public void CreateVersionFile()
         {
-            string appVersion = $"{currentversion.Major}.{currentversion.Minor}.{currentversion.Build}.{currentversion.Revision}";
-            if (!File.Exists(LocalVersionFilePath))
+            using (FileStream fs = File.Create(LocalVersionFilePath))
             {
-                File.Create(LocalVersionFilePath);
+                byte[] info = new UTF8Encoding(true).GetBytes(currentversion.ToString());
+                fs.Write(info, 0, info.Length);
             }
-            Thread.Sleep(1000);
-            File.WriteAllText(LocalVersionFilePath, appVersion);
         }
         public bool NewVersionAvailable()
         {
-            
             WebClient wc = new WebClient();
-            Version newv = new Version(wc.DownloadString(UpdateVersionUrl));
-            string appVersion = $"{currentversion.Major}.{currentversion.Minor}.{currentversion.Build}.{currentversion.Revision}";
-            if (currentversion != newv)
+            Version UpdateVersion = new Version(wc.DownloadString(UpdateVersionUrl));
+            if (currentversion != UpdateVersion)
             {
                 return true;
             }
-            MessageBox.Show(appVersion + " " + newv.ToString());
+            MessageBox.Show(currentversion.ToString() + " = " + UpdateVersion.ToString());
             return false;
         }
 
@@ -71,7 +67,7 @@ namespace TestUpdateWPF
         }
         private void UnpackZip()
         {
-            Process.Start(ExePath,CurrentPath+" "+DownloadPath);
+            Process.Start(EctractorExePath,CurrentPath+" "+DownloadPath);
         }
         private void ExitApplication()
         {//exit the app.
