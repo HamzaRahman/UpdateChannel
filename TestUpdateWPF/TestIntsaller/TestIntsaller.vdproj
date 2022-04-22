@@ -249,6 +249,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_8562856E560F4E27A2A93601C392CF44"
+                    {
+                    "Name" = "8:AutoUpdater"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_0A89A267E65E40D7AF99C6777820D806"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_EE06BD8D64364806A959503260F72CBA"
@@ -290,7 +301,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TestIntsaller"
         "ProductCode" = "8:{78795901-FFEF-41CE-8E51-501B19A7E675}"
-        "PackageCode" = "8:{FD657358-2CA8-48AB-92E8-0572E2D8AF06}"
+        "PackageCode" = "8:{F2FA5740-692B-40FD-8DF8-078AA98DD6A1}"
         "UpgradeCode" = "8:{453EB1B2-8999-487F-A4F9-9565FD2A1645}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -828,7 +839,7 @@
             "SourcePath" = "8:..\\..\\..\\AutoUpdater\\AutoUpdater\\obj\\Release\\netcoreapp3.1\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_0CD6AE70A9444BEA933493E26D73AA4F"
+            "Folder" = "8:_8562856E560F4E27A2A93601C392CF44"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

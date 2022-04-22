@@ -30,8 +30,18 @@ namespace TestUpdateWPF
         {
             if (vs.NewVersionAvailable())
             {
-                MessageBox.Show("up");
-                //vs.DownloadNewVersion();
+                try
+                {
+                    vs.DownloadNewVersion();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Update Available");
             }
         }
     }

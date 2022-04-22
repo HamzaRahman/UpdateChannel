@@ -19,7 +19,7 @@ namespace TestUpdateWPF
         string LocalVersionFilePath = Environment.CurrentDirectory + @"\Version.txt";
         string DownloadPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup.zip";
         string CurrentPath = Path.Combine(Environment.CurrentDirectory);//Environment.GetEnvironmentVariable("USERPROFILE") + @"\Downloads\Setup\";
-        string EctractorExePath = Environment.CurrentDirectory + @"\AutoUpdater.exe";
+        string ExtractorExePath = Environment.CurrentDirectory + @"\AutoUpdater\AutoUpdater.exe";
         private string SetupUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Setup.zip";
         private string UpdateVersionUrl = "https://raw.githubusercontent.com/HamzaRahman/UpdateChannel/main/publish/Version.txt";
         Version currentversion = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
@@ -67,7 +67,7 @@ namespace TestUpdateWPF
         }
         private void UnpackZip()
         {
-            Process.Start(EctractorExePath,CurrentPath+" "+DownloadPath);
+            Process.Start(ExtractorExePath,CurrentPath+" "+DownloadPath);
         }
         private void ExitApplication()
         {//exit the app.
